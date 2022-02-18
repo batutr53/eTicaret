@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\eTicaret.Data\eTicaret.Data.csproj" />
+    <ProjectReference Include="..\eTicaret.Data\eTicaret.Repository.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Core", "eTicaret.Core\eTicaret.Core.csproj", "{FF186267-59D9-474F-8A15-1B2E307C2D0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.Core", "eTicaret.Core\eTicaret.Core.csproj", "{FF186267-59D9-474F-8A15-1B2E307C2D0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Data", "eTicaret.Data\eTicaret.Data.csproj", "{CC63253E-9E66-449F-9F4A-35B16EB7AB14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.Repository", "eTicaret.Data\eTicaret.Repository.csproj", "{CC63253E-9E66-449F-9F4A-35B16EB7AB14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Service", "eTicaret.Service\eTicaret.Service.csproj", "{2DE8D63D-1CF0-4D02-BAE7-4BF71E64C0D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.Service", "eTicaret.Service\eTicaret.Service.csproj", "{2DE8D63D-1CF0-4D02-BAE7-4BF71E64C0D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.API", "eTicaret.API\eTicaret.API.csproj", "{5E98E22D-49B7-4B75-925B-0365519BDCE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.API", "eTicaret.API\eTicaret.API.csproj", "{5E98E22D-49B7-4B75-925B-0365519BDCE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Caching", "eTicaret.Caching\eTicaret.Caching.csproj", "{4F009E7D-A897-44DF-BAEE-DE0023A6EC87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.Caching", "eTicaret.Caching\eTicaret.Caching.csproj", "{4F009E7D-A897-44DF-BAEE-DE0023A6EC87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
