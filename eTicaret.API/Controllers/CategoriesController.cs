@@ -1,4 +1,5 @@
-﻿using eTicaret.Core.Services;
+﻿using eTicaret.API.Filters;
+using eTicaret.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace eTicaret.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class CategoriesController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
