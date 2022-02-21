@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace eTicaret.API.Middlewares
 {
-    public static class UseCustomExceptionHandler
+    public static class USeCustomExceptionHandler
     {
         public static void UseCustomException(this IApplicationBuilder app) 
         {
@@ -20,7 +20,6 @@ namespace eTicaret.API.Middlewares
                     var statusCode = exceptionFeature.Error switch
                     {
                         ClientSideException => 400,
-                        NotFoundException => 404,
                         _ => 500
                     };
                     context.Response.StatusCode = statusCode;

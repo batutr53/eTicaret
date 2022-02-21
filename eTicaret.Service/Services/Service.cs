@@ -1,7 +1,6 @@
 ﻿using eTicaret.Core.Repositories;
 using eTicaret.Core.Services;
 using eTicaret.Core.UnitOfWorks;
-using eTicaret.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -49,12 +48,7 @@ namespace eTicaret.Service.Services
 
         public async Task<T> GetByIAsync(int id)
         {
-          var hasProduct = await _repository.GetByIAsync(id);
-            if (hasProduct==null)
-            {
-                throw new NotFoundException($"{typeof(T).Name}({id}) not found");
-            }
-            return hasProduct;
+          return await _repository.GetByIAsync(id);
         }
 
         public async Task RemoveAsync(T entity)
