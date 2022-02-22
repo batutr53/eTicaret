@@ -1,4 +1,5 @@
 ﻿using eTicaret.Core;
+using eTicaret.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace eTicaret.Repository
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
+        public DbSet<ProductImage>  ProductImages { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

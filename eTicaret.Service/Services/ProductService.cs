@@ -22,6 +22,8 @@ namespace eTicaret.Service.Services
             _mapper = mapper;
         }
 
+ 
+
         public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductWithCategory()
         {
             var products = await _productRepository.GetProductWithCategory();

@@ -5,21 +5,22 @@ using System.Text.Json;
 
 namespace eTicaret.API.Middlewares
 {
-    public static class USeCustomExceptionHandler
+    public static class UseCustomExceptionHandler
     {
-        public static void UseCustomException(this IApplicationBuilder app) 
+        public static void UseCustomException(this IApplicationBuilder app)
         {
-
             app.UseExceptionHandler(config =>
             {
                 config.Run(async context =>
                 {
-
                     context.Response.ContentType = "application/json";
+
                     var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
+
                     var statusCode = exceptionFeature.Error switch
                     {
                         ClientSideException => 400,
+                        NotFoundException => 404,
                         _ => 500
                     };
                     context.Response.StatusCode = statusCode;
@@ -27,7 +28,6 @@ namespace eTicaret.API.Middlewares
                     var response = CustomResponseDto<NoContentDto>.Fail(statusCode, exceptionFeature.Error.Message);
 
                     await context.Response.WriteAsync(JsonSerializer.Serialize(response));
-
                 });
             });
         }

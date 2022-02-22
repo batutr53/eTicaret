@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using eTicaret.API.Filters;
 using eTicaret.Core;
 using eTicaret.Core.DTOs;
 using eTicaret.Core.Services;
@@ -34,7 +35,7 @@ namespace eTicaret.API.Controllers
 
             return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productsDtos));
         }
-
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

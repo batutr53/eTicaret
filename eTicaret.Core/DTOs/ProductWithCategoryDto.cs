@@ -9,5 +9,6 @@ namespace eTicaret.Core.DTOs
     public class ProductWithCategoryDto:ProductDto
     {
         public CategoryDto Category { get; set; }
+        public ProductFeatureDto ProductFeature { get; set; }
     }
 }

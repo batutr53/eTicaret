@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eTicaret.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace eTicaret.Core
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public ProductFeature ProductFeature { get; set; }
+        public List<ProductImage> ProductImages { get; set; }
     }
 }
