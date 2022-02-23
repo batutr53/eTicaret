@@ -1,5 +1,6 @@
 ﻿using eTicaret.Core.Models;
 using eTicaret.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace eTicaret.Repository.Repositories
     {
         public UserRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public async Task<User> GetSingleUserByIdWithUserRoleAsync(int userId)
+        {
+          return await _context.Users.Include(x=>x.UserRole).Where(x=>x.Id == userId).SingleOrDefaultAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using eTicaret.Core.Models;
+﻿using eTicaret.Core.DTOs;
+using eTicaret.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,7 @@ namespace eTicaret.Core.Services
 {
     public interface IUserService:IService<User>
     {
-        bool IsUniqueUser(string username);
-        User Authenticate(string username, string password);
-        User Register(string username, string password);
+        public Task<CustomResponseDto<UserWithRoleDto>> GetSingleUserByIdWithUserRoleAsync(int userId);
+  
     }
 }

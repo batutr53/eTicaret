@@ -18,8 +18,14 @@ namespace eTicaret.Service.Services.Mapping
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<ProductFeature, ProductFeatureDto>().ReverseMap();
 
-            CreateMap<User, UserDto>();
-            CreateMap<UserRole, UserRoleDto>();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<UserRole, UserRoleDto>().ReverseMap();
+
+            CreateMap<User, UserWithRoleDto>().ReverseMap();
+           // CreateMap<UserRoleDto, UserWithRoleDto>().ReverseMap();
+          //  CreateMap<UserRole, UserWithRoleDto>().ReverseMap();
+           
+
             CreateMap<ProductUpdateDto,Product>();
             CreateMap<Product, ProductWithCategoryDto>();
             CreateMap<Category, CategoryWithProductsDto>();

@@ -1,4 +1,6 @@
-﻿using eTicaret.Core.Models;
+﻿using AutoMapper;
+using eTicaret.Core.DTOs;
+using eTicaret.Core.Models;
 using eTicaret.Core.Repositories;
 using eTicaret.Core.Services;
 using eTicaret.Core.UnitOfWorks;
@@ -12,23 +14,23 @@ namespace eTicaret.Service.Services
 {
     public class UserService : Service<User>, IUserService
     {
-        public UserService(IUnitOfWork unitOfWork, IGenericRepository<User> repository) : base(unitOfWork, repository)
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
+        public UserService(IUnitOfWork unitOfWork, IGenericRepository<User> repository, IMapper mapper, IUserRepository userRepository) : base(unitOfWork, repository)
         {
+            _mapper = mapper;
+            _userRepository = userRepository;
         }
 
-        public User Authenticate(string username, string password)
+        public async Task<CustomResponseDto<UserWithRoleDto>> GetSingleUserByIdWithUserRoleAsync(int userId)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetSingleUserByIdWithUserRoleAsync(userId);
+            var userDto=_mapper.Map<UserWithRoleDto>(user);
+            return CustomResponseDto<UserWithRoleDto>.Success(200, userDto);
+
+
         }
 
-        public bool IsUniqueUser(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User Register(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+  
     }
 }

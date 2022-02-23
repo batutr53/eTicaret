@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.Models
 {
-    public class UserRole:BaseEntity
+    public class UserRole
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<User> Users { get; set; }
+        public ICollection<User> User { get; set; }
     }
 }
