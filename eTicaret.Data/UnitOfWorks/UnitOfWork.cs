@@ -24,5 +24,6 @@ namespace eTicaret.Repository.UnitOfWorks
         {
            await _context.SaveChangesAsync();
         }
+
     }
 }
