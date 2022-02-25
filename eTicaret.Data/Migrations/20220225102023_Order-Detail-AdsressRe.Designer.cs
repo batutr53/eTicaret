@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eTicaret.Repository;
 
@@ -11,9 +12,10 @@ using eTicaret.Repository;
 namespace eTicaret.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220225102023_Order-Detail-AdsressRe")]
+    partial class OrderDetailAdsressRe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +45,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.Address", b =>
@@ -75,7 +77,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.CommentImage", b =>
@@ -97,7 +99,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("ProductCommentId");
 
-                    b.ToTable("CommentImages", (string)null);
+                    b.ToTable("CommentImages");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.Order", b =>
@@ -118,6 +120,9 @@ namespace eTicaret.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Satus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -132,9 +137,11 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("AddressId");
 
+                    b.HasIndex("OrderId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.OrderDetail", b =>
@@ -172,7 +179,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetails", (string)null);
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.ProductComment", b =>
@@ -205,7 +212,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ProductComments", (string)null);
+                    b.ToTable("ProductComments");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.ProductImage", b =>
@@ -235,7 +242,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages", (string)null);
+                    b.ToTable("ProductImages");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.User", b =>
@@ -283,7 +290,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("UserRoleId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.UserRole", b =>
@@ -300,7 +307,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Product", b =>
@@ -335,7 +342,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("eTicaret.Core.ProductFeature", b =>
@@ -364,7 +371,7 @@ namespace eTicaret.Repository.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductFeatures", (string)null);
+                    b.ToTable("ProductFeatures");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.Address", b =>
@@ -397,6 +404,10 @@ namespace eTicaret.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("eTicaret.Core.Models.Order", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("OrderId");
+
                     b.HasOne("eTicaret.Core.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId");
@@ -409,7 +420,7 @@ namespace eTicaret.Repository.Migrations
             modelBuilder.Entity("eTicaret.Core.Models.OrderDetail", b =>
                 {
                     b.HasOne("eTicaret.Core.Models.Order", "Order")
-                        .WithMany("OrderDetails")
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -495,7 +506,7 @@ namespace eTicaret.Repository.Migrations
 
             modelBuilder.Entity("eTicaret.Core.Models.Order", b =>
                 {
-                    b.Navigation("OrderDetails");
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.User", b =>

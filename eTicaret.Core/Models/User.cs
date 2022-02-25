@@ -19,5 +19,7 @@ namespace eTicaret.Core.Models
         public string Confirmation { get; set; }
         [NotMapped]
         public string Token { get; set; }
+        public List<Address> Addresses { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

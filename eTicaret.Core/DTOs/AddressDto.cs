@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.DTOs
 {
-    public class UserWithRoleDto:UserDto
+    public class AddressDto:BaseDto
     {
-        public UserRoleDto UserRole { get; set; }
-        public List<AddressDto> Addresses  { get; set; }
+        public string Name { get; set; }
+        public string Descr { get; set; }
     }
 }

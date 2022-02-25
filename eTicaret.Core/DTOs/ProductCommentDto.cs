@@ -12,6 +12,7 @@ namespace eTicaret.Core.DTOs
         public string Comment { get; set; }
         public int ProductId { get; set; }
         public int UserId { get; set; }
-        public DateTime CreatedDate { get; set; } 
+        public DateTime CreatedDate { get; set; }
+        public bool IsActive { get; set; } = false;
     }
 }

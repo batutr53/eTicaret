@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eTicaret.Repository;
 
@@ -11,9 +12,10 @@ using eTicaret.Repository;
 namespace eTicaret.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220224162034_Commen-IsActiveRE")]
+    partial class CommenIsActiveRE
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,39 +45,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.CommentImage", b =>
@@ -97,82 +67,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("ProductCommentId");
 
-                    b.ToTable("CommentImages", (string)null);
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Satus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders", (string)null);
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderDetails", (string)null);
+                    b.ToTable("CommentImages");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.ProductComment", b =>
@@ -205,7 +100,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ProductComments", (string)null);
+                    b.ToTable("ProductComments");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.ProductImage", b =>
@@ -235,7 +130,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages", (string)null);
+                    b.ToTable("ProductImages");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.User", b =>
@@ -283,7 +178,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("UserRoleId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.UserRole", b =>
@@ -300,7 +195,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Product", b =>
@@ -335,7 +230,7 @@ namespace eTicaret.Repository.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("eTicaret.Core.ProductFeature", b =>
@@ -364,18 +259,7 @@ namespace eTicaret.Repository.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductFeatures", (string)null);
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.Address", b =>
-                {
-                    b.HasOne("eTicaret.Core.Models.User", "User")
-                        .WithMany("Addresses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
+                    b.ToTable("ProductFeatures");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.CommentImage", b =>
@@ -387,42 +271,6 @@ namespace eTicaret.Repository.Migrations
                         .IsRequired();
 
                     b.Navigation("ProductComment");
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.Order", b =>
-                {
-                    b.HasOne("eTicaret.Core.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eTicaret.Core.Models.User", "User")
-                        .WithMany("Orders")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Address");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.OrderDetail", b =>
-                {
-                    b.HasOne("eTicaret.Core.Models.Order", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eTicaret.Core.Product", "Product")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("eTicaret.Core.Models.ProductComment", b =>
@@ -493,18 +341,6 @@ namespace eTicaret.Repository.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("eTicaret.Core.Models.Order", b =>
-                {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("eTicaret.Core.Models.User", b =>
-                {
-                    b.Navigation("Addresses");
-
-                    b.Navigation("Orders");
-                });
-
             modelBuilder.Entity("eTicaret.Core.Models.UserRole", b =>
                 {
                     b.Navigation("User");
@@ -512,8 +348,6 @@ namespace eTicaret.Repository.Migrations
 
             modelBuilder.Entity("eTicaret.Core.Product", b =>
                 {
-                    b.Navigation("OrderDetails");
-
                     b.Navigation("ProductComments");
 
                     b.Navigation("ProductFeature")

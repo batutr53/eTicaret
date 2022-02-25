@@ -15,6 +15,8 @@ namespace eTicaret.Core.Models
         public Product Product { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        public bool IsActive { get; set; } = false;
+        public List<CommentImage> CommentImages { get; set; }
 
     }
 }

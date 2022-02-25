@@ -33,6 +33,7 @@ namespace eTicaret.Service.Services.Mapping
             CreateMap<Product, ProductImageDto>().ReverseMap();
             CreateMap<ProductImage, ProductImageDto>().ReverseMap();
 
+            CreateMap<Address, AddressDto>().ReverseMap();
 
             CreateMap<ProductUpdateDto,Product>();
             CreateMap<Product, ProductWithCategoryDto>();
