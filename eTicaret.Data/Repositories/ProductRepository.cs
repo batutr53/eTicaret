@@ -1,4 +1,5 @@
 ﻿using eTicaret.Core;
+using eTicaret.Core.DTOs;
 using eTicaret.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,9 +15,13 @@ namespace eTicaret.Repository.Repositories
         {
         }
 
+
         public async Task<List<Product>> GetProductWithCategory()
         {
             return await _context.Products.Include(x => x.Category).Include(x=>x.ProductFeature).Include(x=>x.ProductComments).Include(x=>x.ProductImages).ToListAsync();
         }
+
+      
+
     }
 }
