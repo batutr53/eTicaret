@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\eTicaret.Web.Client.csproj" />
     <ProjectReference Include="..\Shared\eTicaret.Web.Shared.csproj" />
   </ItemGroup>
 

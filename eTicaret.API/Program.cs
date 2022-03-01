@@ -9,6 +9,7 @@ using eTicaret.Service.Validations;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,7 +36,12 @@ builder.Services.AddDbContext<AppDbContext>(x =>
         option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
         });
     });
-
+builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
+{
+    var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
+    return ConnectionMultiplexer.Connect(configuration);
+}
+);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
 

@@ -13,12 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.API", "eTicaret.AP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTicaret.Caching", "eTicaret.Caching\eTicaret.Caching.csproj", "{4F009E7D-A897-44DF-BAEE-DE0023A6EC87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Web.Server", "eTicaret.Web\Server\eTicaret.Web.Server.csproj", "{77B512F9-35CB-43C3-98CA-E9B9D9AD7826}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Web.Client", "eTicaret.Web\Client\eTicaret.Web.Client.csproj", "{C6B88103-59E9-4D75-89C5-63533482E2E3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicaret.Web.Shared", "eTicaret.Web\Shared\eTicaret.Web.Shared.csproj", "{88A576ED-0BEE-403C-9EAF-617E8DD86C6A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,18 +39,6 @@ Global
 		{4F009E7D-A897-44DF-BAEE-DE0023A6EC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F009E7D-A897-44DF-BAEE-DE0023A6EC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F009E7D-A897-44DF-BAEE-DE0023A6EC87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77B512F9-35CB-43C3-98CA-E9B9D9AD7826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77B512F9-35CB-43C3-98CA-E9B9D9AD7826}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77B512F9-35CB-43C3-98CA-E9B9D9AD7826}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77B512F9-35CB-43C3-98CA-E9B9D9AD7826}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6B88103-59E9-4D75-89C5-63533482E2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6B88103-59E9-4D75-89C5-63533482E2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6B88103-59E9-4D75-89C5-63533482E2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6B88103-59E9-4D75-89C5-63533482E2E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88A576ED-0BEE-403C-9EAF-617E8DD86C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88A576ED-0BEE-403C-9EAF-617E8DD86C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88A576ED-0BEE-403C-9EAF-617E8DD86C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88A576ED-0BEE-403C-9EAF-617E8DD86C6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
