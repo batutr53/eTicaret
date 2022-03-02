@@ -12,8 +12,19 @@ using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 using System.Reflection;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options =>
+{
+options.AddPolicy(name: MyAllowSpecificOrigins,
+                  builder =>
+                  {
+                      builder.WithOrigins("https://localhost:44387",
+                                          "https://localhost:4200")
+                                                  .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                  });
+});
 // Add services to the container.
 
 builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute())).AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
@@ -56,8 +67,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCustomException();
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
