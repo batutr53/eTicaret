@@ -63,5 +63,6 @@ namespace eTicaret.Repository.Repositories
         {
             return _dbSet.Where(expression);
         }
+
     }
 }

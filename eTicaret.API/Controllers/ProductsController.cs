@@ -2,6 +2,7 @@
 using eTicaret.API.Filters;
 using eTicaret.Core;
 using eTicaret.Core.DTOs;
+using eTicaret.Core.Models;
 using eTicaret.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,21 @@ namespace eTicaret.API.Controllers
             _productService = productService;
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("GetProductWithCategory")]
         //[HttpGet("[action]")]
-        public async Task<IActionResult> GetProductWithCategory()
+        public async Task<IActionResult> GetProductWithCategory(string? sort, int page)
         {
-            return CreateActionResult(await _productService.GetProductWithCategory());
+            const int pageSize = 5;
+            return CreateActionResult(await _productService.GetProductWithCategory(sort, page, pageSize));
+        }
+
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
+        [HttpGet("GetProductByIdAll")]
+        //[HttpGet("[action]")]
+        public async Task<IActionResult> GetProductByIdAll(int productId)
+        {
+            return CreateActionResult(await _productService.GetProductByIdAll(productId));
         }
 
         [HttpGet]

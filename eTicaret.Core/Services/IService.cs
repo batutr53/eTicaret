@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace eTicaret.Core.Services
 {
     public interface IService<T> where T : class

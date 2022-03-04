@@ -37,7 +37,8 @@ namespace eTicaret.Service.Services.Mapping
             CreateMap<Address, AddressDto>().ReverseMap();
 
             CreateMap<ProductUpdateDto,Product>();
-            CreateMap<Product, ProductWithCategoryDto>();
+            CreateMap<ProductBrand,ProductBrandDto>();
+            CreateMap<Product, ProductWithAllDto>();
             CreateMap<Category, CategoryWithProductsDto>();
 
 

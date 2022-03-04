@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eTicaret.Core;
 using eTicaret.Core.DTOs;
+using eTicaret.Core.Models;
 using eTicaret.Core.Repositories;
 using eTicaret.Core.Services;
 using eTicaret.Core.UnitOfWorks;
@@ -24,14 +25,18 @@ namespace eTicaret.Service.Services
             _mapper = mapper;
         }
 
-   
-
-
-        public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductWithCategory()
+        public async Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductByIdAll(int productId)
         {
-            var products = await _productRepository.GetProductWithCategory();
-            var productsDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
-            return CustomResponseDto<List<ProductWithCategoryDto>>.Success(200, productsDto);
+            var products = await _productRepository.GetProductByIdAll(productId);
+            var productsDto = _mapper.Map<List<ProductWithAllDto>>(products);
+            return CustomResponseDto<List<ProductWithAllDto>>.Success(200, productsDto);
+        }
+
+        public async Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductWithCategory(string? sort, int page, int pageSize)
+        {
+            var products = await _productRepository.GetProductWithCategory(sort, page, pageSize);
+            var productsDto = _mapper.Map<List<ProductWithAllDto>>(products);
+            return CustomResponseDto<List<ProductWithAllDto>>.Success(200, productsDto);
         }
     }
 }

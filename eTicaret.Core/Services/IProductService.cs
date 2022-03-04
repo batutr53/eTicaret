@@ -1,4 +1,5 @@
 ﻿using eTicaret.Core.DTOs;
+using eTicaret.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace eTicaret.Core.Services
 {
     public interface IProductService:IService<Product>
     {
-        Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductWithCategory();
+        Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductWithCategory(string? sort, int page, int pageSize);
+        Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductByIdAll(int productId);
       
     }
 }

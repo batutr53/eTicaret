@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.DTOs
 {
-    public class ProductWithCategoryDto:ProductDto
+    public class ProductWithAllDto:ProductDto
     {
         public CategoryDto Category { get; set; }
         public ProductFeatureDto ProductFeature { get; set; }
         public List<ProductCommentDto> ProductComments { get; set; }
         public List<ProductImageDto> ProductImages { get; set; }
-        public List<CommentImageDto> CommentImageDtos { get; set; }
-        
+        public List<CommentImageDto> CommentImage { get; set; }
+        public ProductBrandDto ProductBrand { get; set; }
+
     }
 }
