@@ -51,6 +51,14 @@ namespace eTicaret.Repository.Repositories
                          .Include(x => x.ProductImages).Include(x => x.ProductBrand).ToListAsync();
         }
 
+        public async Task<List<Product>> SearchProduct(string productName)
+        {
+            return await _context.Products.Where(x => x.Name.Contains(productName)).ToListAsync();
+        }
 
+        public async Task<List<Product>> GetCategoryWithProduct(int categoryId)
+        {
+            return await _context.Products.Include(x => x.Category).Where(x => x.CategoryId == categoryId).ToListAsync();
+        }
     }
 }

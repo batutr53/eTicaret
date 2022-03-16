@@ -19,7 +19,7 @@ namespace eTicaret.Core
         public ProductFeature ProductFeature { get; set; }
         public List<ProductImage> ProductImages { get; set; }
         public List<ProductComment> ProductComments { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<CartItem> OrderDetails { get; set; }
         public int? ProductBrandId { get; set; }
         public ProductBrand ProductBrand { get; set; }
     }

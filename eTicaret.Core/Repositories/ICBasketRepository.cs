@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.Repositories
 {
-    public interface IBasketRepository
+    public interface ICBasketRepository
     {
-        Task<Basket> GetBasketAsync(string baskedId);
-        Task<Basket> UpdateBasketAsync(Basket basked);
+        Task<CBasket> GetBasketAsync(string baskedId);
+        Task<CBasket> UpdateBasketAsync(CBasket basked);
         Task<bool> DeleteBasketAsync(string basketId);
     }
 }

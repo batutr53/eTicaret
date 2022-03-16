@@ -15,6 +15,8 @@ namespace eTicaret.Service.Services.Mapping
         public MapProfile()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
+            CreateMap<Product, ProductFeature>().ReverseMap();
+            CreateMap<Product, ProductWithCategoryDto>();
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<ProductFeature, ProductFeatureDto>().ReverseMap();
             CreateMap<ProductFeature, ProductWithFeatureDto>().ReverseMap();
@@ -34,11 +36,16 @@ namespace eTicaret.Service.Services.Mapping
             CreateMap<Product, ProductImageDto>().ReverseMap();
             CreateMap<ProductImage, ProductImageDto>().ReverseMap();
 
-            CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<UserAddress, UserAddressDto>().ReverseMap();
 
             CreateMap<ProductUpdateDto,Product>();
+           CreateMap<CartByUserIdDto,Cart>().ReverseMap();
+           CreateMap<Cart, CartWithUserDto>();
+         //   CreateMap<Cart,CartItemDto>().ReverseMap();
+         //   CreateMap<CartWithUserDto, CartItem>().ReverseMap();
             CreateMap<ProductBrand,ProductBrandDto>();
             CreateMap<Product, ProductWithAllDto>();
+            CreateMap<Product, ProductSearchDto>();
             CreateMap<Category, CategoryWithProductsDto>();
 
 

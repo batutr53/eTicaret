@@ -20,7 +20,8 @@ options.AddPolicy(name: MyAllowSpecificOrigins,
                   builder =>
                   {
                       builder.WithOrigins("https://localhost:44387",
-                                          "https://localhost:4200")
+                                          "https://localhost:4200",
+                                          "http://localhost:4200")
                                                   .AllowAnyHeader()
                                                   .AllowAnyMethod();
                   });

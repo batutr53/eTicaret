@@ -12,6 +12,8 @@ namespace eTicaret.Core.Services
     {
         Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductWithCategory(string? sort, int page, int pageSize);
         Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductByIdAll(int productId);
+        Task<CustomResponseDto<List<ProductSearchDto>>> SearchProduct(string productName);
+        Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetCategoryWithProduct(int categoryId);
       
     }
 }

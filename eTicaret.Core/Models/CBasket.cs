@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.Models
 {
-    public class Basket
+    public class CBasket
     {
-        public Basket()
+        public CBasket()
         {
 
         }
-        public Basket(string id)
+        public CBasket(string id)
         {
             Id = id;
         }
         public string Id { get; set; }
-        public List<BasketItem> BasketItems { get; set; } = new List<BasketItem>();
+        public List<CBasketItem> BasketItems { get; set; } = new List<CBasketItem>();
     }
 }

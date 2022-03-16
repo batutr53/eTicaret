@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.Models
 {
-    public class Address:BaseEntity
+    public class UserAddress:BaseEntity
     {
         public string Name { get; set; }
         public string Descr { get; set; }

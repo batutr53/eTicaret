@@ -20,14 +20,16 @@ namespace eTicaret.Repository
         public DbSet<ProductFeature> ProductFeatures { get; set; }
         public DbSet<ProductImage>  ProductImages { get; set; }
         public DbSet<ProductComment> ProductComments { get; set; }
+        public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<CommentImage> CommentImages { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        public DbSet<UserAddress> UserAddresses { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+    
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<ProductBrand> ProductBrands { get; set; }
-
+        public DbSet<OrderItem> OrderItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

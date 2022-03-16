@@ -14,10 +14,12 @@ namespace eTicaret.API.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
-        public UsersController(IUserService userService, IMapper mapper)
+        private readonly ICartService _cartService;
+        public UsersController(IUserService userService, IMapper mapper, ICartService cartService)
         {
             _userService = userService;
             _mapper = mapper;
+            _cartService = cartService;
         }
         [ServiceFilter(typeof(NotFoundFilter<User>))]
         [HttpGet("[action]/{userId}")]
@@ -48,9 +50,10 @@ namespace eTicaret.API.Controllers
         {
             var user = await _userService.AddAsync(_mapper.Map<User>(userDto));
             var usersDto = _mapper.Map<UserCreateDto>(user);
+         //   await _cartService.IniCart(user.Id);
             return CreateActionResult(CustomResponseDto<UserCreateDto>.Success(201, usersDto));
         }
-      
+
         [HttpPut]
         public async Task<IActionResult> Update(UserCreateDto userDto)
         {

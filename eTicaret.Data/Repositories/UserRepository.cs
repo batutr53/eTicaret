@@ -18,7 +18,7 @@ namespace eTicaret.Repository.Repositories
 
         public async Task<User> GetSingleUserByIdWithUserRoleAsync(int userId)
         {
-          return await _context.Users.Include(x=>x.UserRole).Include(x => x.Addresses).Where(x=>x.Id == userId).SingleOrDefaultAsync();        
+          return await _context.Users.Include(x=>x.UserRole).Include(x => x.UserAddresses).Where(x=>x.Id == userId).SingleOrDefaultAsync();        
         }
     }
 }

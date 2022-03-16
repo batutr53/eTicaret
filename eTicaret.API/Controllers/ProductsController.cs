@@ -21,7 +21,18 @@ namespace eTicaret.API.Controllers
             _productService = productService;
         }
 
-        [ServiceFilter(typeof(NotFoundFilter<Product>))]
+        [HttpGet("category/{categoryId}")]
+        public async Task<IActionResult> GetCategoryWithProduct(int categoryId)
+        {
+            return CreateActionResult(await _productService.GetCategoryWithProduct(categoryId));
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> SearchProduct(string productName)
+        {
+            return CreateActionResult(await _productService.SearchProduct(productName));
+        }
+
         [HttpGet("GetProductWithCategory")]
         //[HttpGet("[action]")]
         public async Task<IActionResult> GetProductWithCategory(string? sort, int page)

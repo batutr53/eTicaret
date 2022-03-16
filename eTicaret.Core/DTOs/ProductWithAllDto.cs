@@ -12,7 +12,7 @@ namespace eTicaret.Core.DTOs
         public ProductFeatureDto ProductFeature { get; set; }
         public List<ProductCommentDto> ProductComments { get; set; }
         public List<ProductImageDto> ProductImages { get; set; }
-        public List<CommentImageDto> CommentImage { get; set; }
+        public List<CommentImageDto> CommentImages { get; set; }
         public ProductBrandDto ProductBrand { get; set; }
 
     }

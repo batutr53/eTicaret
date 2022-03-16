@@ -12,5 +12,7 @@ namespace eTicaret.Core.Repositories
     {
         Task<List<Product>> GetProductWithCategory(string? sort,int page,int pageSize);
         Task<List<Product>> GetProductByIdAll(int productId);
+        Task<List<Product>> SearchProduct(string productName);
+        Task<List<Product>> GetCategoryWithProduct(int categoryId);
     }
 }

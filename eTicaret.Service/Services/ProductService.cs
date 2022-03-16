@@ -25,6 +25,13 @@ namespace eTicaret.Service.Services
             _mapper = mapper;
         }
 
+        public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetCategoryWithProduct(int categoryId)
+        {
+            var products = await _productRepository.GetCategoryWithProduct(categoryId);
+            var productsDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
+            return CustomResponseDto<List<ProductWithCategoryDto>>.Success(200,productsDto);
+        }
+
         public async Task<CustomResponseDto<List<ProductWithAllDto>>> GetProductByIdAll(int productId)
         {
             var products = await _productRepository.GetProductByIdAll(productId);
@@ -38,5 +45,13 @@ namespace eTicaret.Service.Services
             var productsDto = _mapper.Map<List<ProductWithAllDto>>(products);
             return CustomResponseDto<List<ProductWithAllDto>>.Success(200, productsDto);
         }
+
+        public async Task<CustomResponseDto<List<ProductSearchDto>>> SearchProduct(string productName)
+        {
+            var products = await _productRepository.SearchProduct(productName);
+            var productsDto = _mapper.Map<List<ProductSearchDto>>(products);
+            return CustomResponseDto<List<ProductSearchDto>>.Success(200,productsDto);
+        }
+        
     }
 }
