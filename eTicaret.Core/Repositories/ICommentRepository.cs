@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace eTicaret.Core.Repositories
 {
-    public interface ICartRepository:IGenericRepository<Cart>
+    public interface ICommentRepository:IGenericRepository<ProductComment>
     {
-     
-        Task<Cart> GetCartByUserId(int userId);
-       Task<Cart> GetCartWithUserId(int userId);
+
     }
 }

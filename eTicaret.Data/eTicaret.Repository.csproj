@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\eTicaret.Core\eTicaret.Core.csproj" />
+    <ProjectReference Include="..\eTicaret.Shared\eTicaret.Shared.csproj" />
   </ItemGroup>
 
 </Project>

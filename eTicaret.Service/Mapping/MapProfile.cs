@@ -23,6 +23,7 @@ namespace eTicaret.Service.Services.Mapping
 
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserCreateDto>().ReverseMap();
+            CreateMap<User, UserAddDto>().ReverseMap();
             CreateMap<UserRole, UserRoleDto>().ReverseMap();
 
             CreateMap<User, UserWithRoleDto>().ReverseMap();

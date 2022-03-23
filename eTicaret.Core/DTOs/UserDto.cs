@@ -9,11 +9,11 @@ namespace eTicaret.Core.DTOs
     public class UserDto: BaseDto
     {
         public string UserName { get; set; }
-        public string FullName { get; set; }
-        public string Mail { get; set; }
-        public string TelNumber { get; set; }
+        public string? FullName { get; set; }
+        public string? Mail { get; set; }
+        public string? TelNumber { get; set; }
         public string Password { get; set; }
-        public string Confirmation { get; set; }
+        public bool Confirmation { get; set; }
         public int UserRoleId { get; set; }
     }
 }

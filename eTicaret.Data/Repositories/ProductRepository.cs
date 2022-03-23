@@ -47,7 +47,7 @@ namespace eTicaret.Repository.Repositories
         public async Task<List<Product>> GetProductByIdAll(int productId)
         {
             return await _context.Products.Where(x => x.Id == productId).Include(x => x.Category)
-                         .Include(x => x.ProductFeature).Include(x => x.ProductComments)
+                         .Include(x => x.ProductFeature).Include(x => x.ProductComments).ThenInclude(xu=>xu.User)
                          .Include(x => x.ProductImages).Include(x => x.ProductBrand).ToListAsync();
         }
 

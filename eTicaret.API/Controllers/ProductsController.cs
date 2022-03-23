@@ -4,6 +4,7 @@ using eTicaret.Core;
 using eTicaret.Core.DTOs;
 using eTicaret.Core.Models;
 using eTicaret.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,7 +41,7 @@ namespace eTicaret.API.Controllers
             const int pageSize = 5;
             return CreateActionResult(await _productService.GetProductWithCategory(sort, page, pageSize));
         }
-
+      
         [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("GetProductByIdAll")]
         //[HttpGet("[action]")]

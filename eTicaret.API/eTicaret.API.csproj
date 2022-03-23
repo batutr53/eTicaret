@@ -4,12 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>..\xmlDoc\eTicaret.Shared.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="Docker.DotNet" Version="3.125.5" />
     <PackageReference Include="Iyzipay" Version="2.1.39" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\eTicaret.Service\eTicaret.Service.csproj" />
+    <ProjectReference Include="..\eTicaret.Shared\eTicaret.Shared.csproj" />
   </ItemGroup>
 
 </Project>

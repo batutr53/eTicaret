@@ -26,5 +26,7 @@ namespace eTicaret.Repository.Repositories
         {
                return await _context.Carts.Include(i => i.CartItems).ThenInclude(i=>i.Product).FirstOrDefaultAsync(i => i.UserId == userId);
         }
+
+    
     }
 }

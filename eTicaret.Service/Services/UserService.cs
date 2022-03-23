@@ -16,10 +16,18 @@ namespace eTicaret.Service.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
         public UserService(IUnitOfWork unitOfWork, IGenericRepository<User> repository, IMapper mapper, IUserRepository userRepository) : base(unitOfWork, repository)
         {
             _mapper = mapper;
             _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
+        }
+
+        public User Authenticate(string username, string password)
+        {
+           var user = _userRepository.Authenticate(username, password);
+            return user;
         }
 
         public async Task<CustomResponseDto<UserWithRoleDto>> GetSingleUserByIdWithUserRoleAsync(int userId)
@@ -31,6 +39,16 @@ namespace eTicaret.Service.Services
 
         }
 
-  
+        public bool IsUniqueUser(string username)
+        {
+            return _userRepository.IsUniqueUser(username);
+        }
+
+        public User Register(string username, string password)
+        {
+            var user = _userRepository.Register(username, password);
+           _unitOfWork.Commit();
+            return user;
+        }
     }
 }

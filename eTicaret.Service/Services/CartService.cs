@@ -22,11 +22,13 @@ namespace eTicaret.Service.Services
         {
             _cartRepository = cartRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task IniCart(int userId)
         {
             await _cartRepository.AddAsync(new Cart() { UserId = userId});
+            _unitOfWork.CommitAsync();
         }
 
         public async Task<CustomResponseDto<CartByUserIdDto>> GetCartByUserId(int userId)

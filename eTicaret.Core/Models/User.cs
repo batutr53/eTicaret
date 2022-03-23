@@ -11,13 +11,13 @@ namespace eTicaret.Core.Models
     public class User:BaseEntity
     {
         public string UserName { get; set; }
-        public string Mail { get; set; }
-        public string FullName { get; set; }
-        public string TelNumber { get; set; }
+        public string? Mail { get; set; }
+        public string? FullName { get; set; }
+        public string? TelNumber { get; set; }
         public string Password { get; set; }
         public int UserRoleId { get; set; }
         public UserRole UserRole { get; set; }
-        public string Confirmation { get; set; }
+        public bool Confirmation { get; set; }
         [NotMapped]
         public string Token { get; set; }
         public List<UserAddress> UserAddresses { get; set; }

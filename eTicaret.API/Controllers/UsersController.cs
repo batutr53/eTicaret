@@ -27,6 +27,39 @@ namespace eTicaret.API.Controllers
         {
             return CreateActionResult(await _userService.GetSingleUserByIdWithUserRoleAsync(userId));
         }
+
+
+        [HttpPost("[action]")]
+
+        public IActionResult Authenticate(UserAddDto userDto)
+        {
+            var user = _userService.Authenticate(userDto.UserName, userDto.Password);
+            var usersDto = _mapper.Map<UserAddDto>(user);
+            return Ok(user);
+        }
+
+      [HttpPost("Register")]
+        public IActionResult Register(UserAddDto userDto)
+        {
+            bool userBool = _userService.IsUniqueUser(userDto.UserName);
+            if (!userBool)
+            {
+                return BadRequest(new { message = "Kullanıcı zaten mevcut." });
+            }
+
+            var user = _userService.Register(userDto.UserName, userDto.Password);
+         //   var usersDto = _mapper.Map<UserAddDto>(user);
+            if (user == null)
+            {
+                return BadRequest(new { message = "Kayıt esnasında hata oluştu" });
+            }
+
+            return Ok();
+        }
+        
+
+
+
        
         [HttpGet]
         public async Task<IActionResult> All()
@@ -50,10 +83,10 @@ namespace eTicaret.API.Controllers
         {
             var user = await _userService.AddAsync(_mapper.Map<User>(userDto));
             var usersDto = _mapper.Map<UserCreateDto>(user);
-         //   await _cartService.IniCart(user.Id);
+            await _cartService.IniCart(user.Id);
             return CreateActionResult(CustomResponseDto<UserCreateDto>.Success(201, usersDto));
         }
-
+      
         [HttpPut]
         public async Task<IActionResult> Update(UserCreateDto userDto)
         {
